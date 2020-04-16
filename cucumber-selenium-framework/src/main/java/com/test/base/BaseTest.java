@@ -6,13 +6,14 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
+import com.suite.commons.ExtentLogger;
 import com.suite.commons.listeners.SeleniumMethodInvocationListener;
 
-import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.TestNGCucumberRunner;
 
 @Listeners(SeleniumMethodInvocationListener.class)
 public class BaseTest {
+
 	public TestNGCucumberRunner cucumberRunner;
 
 	@AfterClass(alwaysRun=true)
@@ -25,7 +26,6 @@ public class BaseTest {
 	 @BeforeSuite
 	 public void beforeSuite(String featureFilePath, String glueCodePackageName)
 	 {
-		 System.out.println("****** Inside of before suite");
 		 System.setProperty("cucumber.options",featureFilePath+" --glue "+glueCodePackageName+" ");
 		 cucumberRunner = new TestNGCucumberRunner(this.getClass());
 	 }
@@ -34,7 +34,6 @@ public class BaseTest {
 	 @DataProvider(name="cucumber-examples-parallel",parallel=true)
 	 public Object[][] dataProviderParallel()
 	 {
-		 System.out.println("****** Inside of data provider");
 		 return cucumberRunner.provideScenarios();
 	 }
 	 

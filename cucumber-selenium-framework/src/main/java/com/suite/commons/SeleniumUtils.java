@@ -6,22 +6,26 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.test.base.BasePage;
 import com.web.webdriver_factory.WebDriverFactory;
 
 public class SeleniumUtils {
+    private static final Logger logger = LoggerFactory.getLogger(SeleniumUtils.class);
 
 	public static void takeScreenshot(String fileNameWithPath) {
 		if (null == WebDriverFactory.getDriver()) {
-			System.out.println("!!!!!! Webdriver is null hence returning from SeleniumUtil > takeScreenShot()");
+			logger.info("!!!!!! Webdriver is null hence returning from SeleniumUtil > takeScreenShot()");
 			return;
 		}
-		System.out.println("********** Taking screenshot at - "+fileNameWithPath);
+		logger.info("********** Taking screenshot at - "+fileNameWithPath);
 		File scrFile = ((TakesScreenshot) WebDriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File(fileNameWithPath));
 		} catch (IOException e) {
-			System.out.println("!!!!!!!!!! exception while taking screenshot");
+			logger.info("!!!!!!!!!! exception while taking screenshot");
 			e.printStackTrace();
 		}
 	}

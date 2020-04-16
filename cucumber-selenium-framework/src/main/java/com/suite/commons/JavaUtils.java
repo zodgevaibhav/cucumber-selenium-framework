@@ -3,12 +3,18 @@ package com.suite.commons;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.test.base.BasePage;
+
 public class JavaUtils {
-	
+    private static final Logger logger = LoggerFactory.getLogger(JavaUtils.class);
+
 	protected static String getClassFilePath(Class<?> cls){
-		System.out.println("******** getFilePath for class "+cls.getName());
+		logger.info("******** getFilePath for class "+cls.getName());
 		String strSourceClassName = cls.getResource(cls.getSimpleName()+".class").getPath();
-		System.out.println("*************** resource path is "+strSourceClassName);
+		logger.info("*************** resource path is "+strSourceClassName);
 		try {
 			strSourceClassName = URLDecoder.decode(strSourceClassName,"UTF-8");
 		} catch (UnsupportedEncodingException e) {
@@ -19,7 +25,7 @@ public class JavaUtils {
 		strFilePath.append(strSourceClassName.subSequence(1, strSourceClassName.indexOf("com")));
 		strFilePath.append(cls.getName().replace(".","/"));
 		strFilePath.append(".xlsx");
-		System.out.println("Class path is - "+strFilePath);
+		logger.info("Class path is - "+strFilePath);
 		//return strFilePath.toString();
 		return strSourceClassName.replace(".class", ".xlsx");
 	}
