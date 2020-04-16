@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.product.tests.BasePage;
+import com.test.base.BasePage;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;

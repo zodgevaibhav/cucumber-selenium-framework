@@ -1,4 +1,4 @@
-package com.product.tests;
+package com.test.base;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeSuite;

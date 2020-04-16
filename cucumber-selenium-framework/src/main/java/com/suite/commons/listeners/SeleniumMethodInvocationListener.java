@@ -40,12 +40,13 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 
 			if(!testResult.isSuccess())
 			{
+				try {
 				System.out.println("!!!!!!!!! Test case found failed");
 				ExtentReportTestFactory.getTest().fail(testResult.getThrowable());
 				String fileName = new Long(System.currentTimeMillis()).toString().replace(".", "").replace(":", "");
 				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"\\"+method.getTestMethod().getMethodName()+".png");
 				System.out.println("********* Screenshot taken at location "+System.getProperty("user.dir")+"/"+fileName+".png");
-				try {
+				
 					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"/"+fileName+".png");
 					System.out.println("******** Screenshot attached to extent report");
 					

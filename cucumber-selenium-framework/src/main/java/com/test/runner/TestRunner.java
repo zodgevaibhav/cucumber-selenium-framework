@@ -1,8 +1,9 @@
-package com.product.tests;
+package com.test.runner;
 
 import org.testng.annotations.Test;
 
 import com.suite.common.reporting.ExtentReportTestFactory;
+import com.test.base.BaseTest;
 
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;

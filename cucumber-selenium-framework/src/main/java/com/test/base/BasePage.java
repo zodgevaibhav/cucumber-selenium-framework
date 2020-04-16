@@ -1,4 +1,4 @@
-package com.product.tests;
+package com.test.base;
 
 import org.openqa.selenium.WebDriver;
 

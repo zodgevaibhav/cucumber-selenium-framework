@@ -8,7 +8,7 @@
 
   <test name="Test">
     <classes>
-      <class name="com.product.tests.TestRunner"/>  <!--  DO NO CHANGE - Mandatory : Test Runner file -->
+      <class name="com.test.runner.TestRunner"/>  <!--  DO NO CHANGE - Mandatory : Test Runner file -->
     </classes>
   </test>
 </suite> 
