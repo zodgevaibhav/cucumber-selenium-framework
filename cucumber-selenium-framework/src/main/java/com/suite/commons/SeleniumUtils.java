@@ -16,10 +16,12 @@ public class SeleniumUtils {
 			System.out.println("!!!!!! Webdriver is null hence returning from SeleniumUtil > takeScreenShot()");
 			return;
 		}
+		System.out.println("********** Taking screenshot at - "+fileNameWithPath);
 		File scrFile = ((TakesScreenshot) WebDriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File(fileNameWithPath));
 		} catch (IOException e) {
+			System.out.println("!!!!!!!!!! exception while taking screenshot");
 			e.printStackTrace();
 		}
 	}

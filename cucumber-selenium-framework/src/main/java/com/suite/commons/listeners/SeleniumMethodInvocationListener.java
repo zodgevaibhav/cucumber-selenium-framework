@@ -22,7 +22,7 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 			System.out.println("******** In before invocation");
 			try {
 				WebDriverFactory.setDriver(WebDriverManager.CreateInstance());
-				ExtentReportTestFactory.createNewTest(method);
+				//ExtentReportTestFactory.createNewTest(method);
 				System.out.println("******** Driver object and test report instance created successfully");
 			} catch (MalformedURLException e) {
 				System.out.println("!!!!!!!! Exception while creating Driver object and test report instance ");
@@ -36,12 +36,19 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 		if(method.isTestMethod())
 		{
 			System.out.println("******** In after invocation");
+			System.out.println("******** In after invocation - Test Case Status " +testResult.isSuccess());
+
 			if(!testResult.isSuccess())
 			{
+				System.out.println("!!!!!!!!! Test case found failed");
 				ExtentReportTestFactory.getTest().fail(testResult.getThrowable());
+				String fileName = new Long(System.currentTimeMillis()).toString().replace(".", "").replace(":", "");
 				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"\\"+method.getTestMethod().getMethodName()+".png");
+				System.out.println("********* Screenshot taken at location "+System.getProperty("user.dir")+"/"+fileName+".png");
 				try {
-					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"\\"+method.getTestMethod().getMethodName()+".png");
+					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"/"+fileName+".png");
+					System.out.println("******** Screenshot attached to extent report");
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
