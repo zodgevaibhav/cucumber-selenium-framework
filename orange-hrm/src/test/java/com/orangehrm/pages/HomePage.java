@@ -19,10 +19,6 @@ public class HomePage extends BasePage {
 	@FindBy(id = "welcome")
 	private WebElement welComeText;
 
-	public HomePage() {
-		PageFactory.initElements(driver, this);
-	}
-
 	@Then("user should be able to see {string} message")
 	public HomePage verifyWelcomeText(String strWelComeText) {
 		logger.info("********** In verify welcome message method");

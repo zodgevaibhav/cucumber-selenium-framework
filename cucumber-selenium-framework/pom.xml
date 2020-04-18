@@ -9,8 +9,6 @@
 	<properties>
 		<compileSource>1.8</compileSource>
 	</properties>
-
-
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>

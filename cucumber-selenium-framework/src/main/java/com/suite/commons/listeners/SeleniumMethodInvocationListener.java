@@ -11,7 +11,6 @@ import org.testng.ITestResult;
 
 import com.suite.common.reporting.ExtentReportTestFactory;
 import com.suite.commons.SeleniumUtils;
-import com.test.base.BasePage;
 import com.web.webdriver_factory.WebDriverFactory;
 import com.web.webdriver_factory.WebDriverManager;
 
@@ -47,7 +46,7 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 				try {
 				ExtentReportTestFactory.getTest().fail(testResult.getThrowable());
 				String fileName = new Long(System.currentTimeMillis()).toString().replace(".", "").replace(":", "");
-				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"\\"+method.getTestMethod().getMethodName()+".png");				
+				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"\\"+fileName+".png");				
 					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"/"+fileName+".png");
 					logger.debug("******** Screenshot attached to extent report");
 					
@@ -57,7 +56,6 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 				}
 			}
 			WebDriverFactory.getDriver().quit();
-			ExtentReportTestFactory.flushReport();
 		}
 	}
 

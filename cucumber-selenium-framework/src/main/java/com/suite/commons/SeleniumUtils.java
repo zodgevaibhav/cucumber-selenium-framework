@@ -9,7 +9,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.test.base.BasePage;
 import com.web.webdriver_factory.WebDriverFactory;
 
 public class SeleniumUtils {

@@ -8,7 +8,10 @@
 
   <test name="Test">
     <classes>
-      <class name="com.test.runner.TestRunner"/>  <!--  DO NO CHANGE - Mandatory : Test Runner file -->
+      <class name="com.test.runner.ParallelTestRunner"/>  <!--  Mandatory : Test Runner file
+      	For Sequential Run - user com.test.runner.SequentialTestRunner
+      	For Parallel Run com.test.runner.ParallelTestRunner
+       -->
     </classes>
   </test>
 </suite> 

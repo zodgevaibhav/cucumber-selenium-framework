@@ -25,13 +25,6 @@ public class LoginPage extends BasePage{
 	@FindBy(id="btnLogin")
 	private WebElement loginButton;
 	
-	
-	
-	public LoginPage()
-	{
-		PageFactory.initElements(driver, this);
-	}
-	
 	@Given("user navigate to orange hrm URL")
 	public LoginPage navigateToOrangeHrmApplication()
 	{
