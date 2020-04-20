@@ -2,7 +2,7 @@ package com.test.runner;
 
 import org.testng.annotations.Test;
 
-import com.suite.common.reporting.ExtentReportTestFactory;
+import com.suite.commons.reporting.ExtentReportTestFactory;
 import com.test.base.BaseTest;
 
 import io.cucumber.testng.FeatureWrapper;

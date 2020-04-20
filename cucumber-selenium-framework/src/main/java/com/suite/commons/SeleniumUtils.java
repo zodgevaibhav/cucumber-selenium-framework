@@ -9,7 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.web.webdriver_factory.WebDriverFactory;
+import com.test.webdriver_factory.WebDriverFactory;
 
 public class SeleniumUtils {
     private static final Logger logger = LoggerFactory.getLogger(SeleniumUtils.class);

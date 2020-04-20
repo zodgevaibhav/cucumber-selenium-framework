@@ -1,7 +1,7 @@
 package com.suite.commons;
 
 import com.aventstack.extentreports.Status;
-import com.suite.common.reporting.ExtentReportTestFactory;
+import com.suite.commons.reporting.ExtentReportTestFactory;
 
 public class ExtentLogger {
 

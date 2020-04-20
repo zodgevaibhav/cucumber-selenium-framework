@@ -1,4 +1,4 @@
-package com.suite.common.reporting;
+package com.suite.commons.reporting;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -9,10 +9,10 @@ import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 
-import com.suite.common.reporting.ExtentReportTestFactory;
 import com.suite.commons.SeleniumUtils;
-import com.web.webdriver_factory.WebDriverFactory;
-import com.web.webdriver_factory.WebDriverManager;
+import com.suite.commons.reporting.ExtentReportTestFactory;
+import com.test.webdriver_factory.WebDriverFactory;
+import com.test.webdriver_factory.WebDriverManager;
 
 
 public class SeleniumMethodInvocationListener implements IInvokedMethodListener {

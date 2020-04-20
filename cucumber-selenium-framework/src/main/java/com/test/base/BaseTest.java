@@ -7,9 +7,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
-import com.suite.common.reporting.ExtentReportTestFactory;
 import com.suite.commons.PropertyHolder;
 import com.suite.commons.listeners.SeleniumMethodInvocationListener;
+import com.suite.commons.reporting.ExtentReportTestFactory;
 
 import io.cucumber.testng.TestNGCucumberRunner;
 
