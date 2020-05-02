@@ -38,9 +38,12 @@ public class RandonNumber {
 	 */
 	public static String getRandomNumberOfLengthWithPrefix(String prefix, int numberOfDigit) {
 		Random r = new Random();
-		for (int i = 1; i <= numberOfDigit - prefix.length(); i++)
+		for (int i = 1; i <= numberOfDigit; i++)
 			prefix = prefix + new Integer(r.nextInt((9 - 1) + 1) + 1).toString();  //  VZ123456
 		return prefix;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(getRandomNumberOfLengthWithPrefix("govinda", 10));
+	}
 }
