@@ -107,30 +107,30 @@ public class WebDriverManager {
 	}
 
 	private static void loadConfigFromPropertyFile() {
-		if (null == PropertyHolder.generalProperties) {
+		if (null == PropertyHolder.webdriverProperties) {
 			System.out.println(
-					"!!!!!! Webdriver Object Creation failed. generalProperties.properties does not load properly");
+					"!!!!!! Webdriver Object Creation failed. webdriverProperties.properties does not load properly");
 			System.exit(-1);
 		}
 
-		if (PropertyHolder.generalProperties.get("DRIVER").toString().contentEquals("BROWSER")) {
+		if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("BROWSER")) {
 			
-			browser = PropertyHolder.generalProperties.getProperty("browser");
-			browserVersion = PropertyHolder.generalProperties.getProperty("browserVersion");
-			platform = PropertyHolder.generalProperties.getProperty("platform");
+			browser = PropertyHolder.webdriverProperties.getProperty("browser");
+			browserVersion = PropertyHolder.webdriverProperties.getProperty("browserVersion");
+			platform = PropertyHolder.webdriverProperties.getProperty("platform");
 			driverMode = "BROWSER";
-			driverPropertyName = PropertyHolder.generalProperties.getProperty("DRIVER_PROPERTY_NAME");
+			driverPropertyName = PropertyHolder.webdriverProperties.getProperty("DRIVER_PROPERTY_NAME");
 			
-			driverExecutablePath = PropertyHolder.generalProperties.getProperty("DRIVER_EXECUTABLE_PATH");
-		} else if (PropertyHolder.generalProperties.get("DRIVER").toString().contentEquals("REMOTE")) {
-			browser = PropertyHolder.generalProperties.getProperty("browser");
-			browserVersion = PropertyHolder.generalProperties.getProperty("browserVersion");
-			platform = PropertyHolder.generalProperties.getProperty("platform");
-			hubUrl = PropertyHolder.generalProperties.getProperty("hubUrl");
+			driverExecutablePath = PropertyHolder.webdriverProperties.getProperty("DRIVER_EXECUTABLE_PATH");
+		} else if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("REMOTE")) {
+			browser = PropertyHolder.webdriverProperties.getProperty("browser");
+			browserVersion = PropertyHolder.webdriverProperties.getProperty("browserVersion");
+			platform = PropertyHolder.webdriverProperties.getProperty("platform");
+			hubUrl = PropertyHolder.webdriverProperties.getProperty("hubUrl");
 			driverMode = "REMOTE";
 		} else {
 			System.out.println(
-					"!!!!!! DRIVER property from generalProperties.properties should be either REMOTE or BROWSER.");
+					"!!!!!! DRIVER property from webdriverProperties.properties should be either REMOTE or BROWSER.");
 			System.exit(-1);
 		}
 
