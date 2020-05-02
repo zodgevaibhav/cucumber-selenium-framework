@@ -2,6 +2,8 @@ package com.test.test_data;
 
 import java.util.Random;
 
+import org.testng.Assert;
+
 public class RandonNumber {
 
 	/**
@@ -35,17 +37,10 @@ public class RandonNumber {
 	 * 
 	 */
 	public static String getRandomNumberOfLengthWithPrefix(String prefix, int numberOfDigit) {
-		String str = prefix;
 		Random r = new Random();
 		for (int i = 1; i <= numberOfDigit - prefix.length(); i++)
-			str = str + new Integer(r.nextInt((9 - 1) + 1) + 1).toString();
-
-		return str;
+			prefix = prefix + new Integer(r.nextInt((9 - 1) + 1) + 1).toString();  //  VZ123456
+		return prefix;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getRandomNumberOfLengthWithPrefix("VZ", 20));
-		System.out.println(getRandomNumberOfLength(20));
-		
-	}
 }

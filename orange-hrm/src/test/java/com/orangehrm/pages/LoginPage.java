@@ -25,10 +25,12 @@ public class LoginPage extends BasePage{
 	@FindBy(id="btnLogin")
 	private WebElement loginButton;
 	
+	
+	
 	@Given("user navigate to orange hrm URL")
 	public LoginPage navigateToOrangeHrmApplication()
 	{
-		driver.get("https://opensource-demo.orangehrmlive.com/");
+		driver.get("");
 		return this;
 	}
 	
