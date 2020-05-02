@@ -43,7 +43,5 @@ public class RandonNumber {
 		return prefix;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getRandomNumberOfLengthWithPrefix("govinda", 10));
-	}
+	
 }
