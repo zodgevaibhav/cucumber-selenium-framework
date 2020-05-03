@@ -2,6 +2,7 @@ package com.test.runner;
 
 import org.testng.annotations.Test;
 
+import com.suite.commons.AssertionFactory;
 import com.suite.commons.reporting.ExtentReportTestFactory;
 import com.test.base.BaseTest;
 
@@ -16,6 +17,8 @@ public class ParallelTestRunner extends BaseTest{
 		 ExtentReportTestFactory.createNewTest(featureWrapper.toString(),pickleWrapper.toString());
 		 ExtentReportTestFactory.assignTestCategories(pickleWrapper.getPickle().getTags());
 		 cucumberRunner.runScenario(pickleWrapper.getPickle());
+		 AssertionFactory.getSoftAssert().assertAll();
+
 	 }
 	
 }

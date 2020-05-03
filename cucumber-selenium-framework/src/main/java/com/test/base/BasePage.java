@@ -1,5 +1,15 @@
 package com.test.base;
 
+
+import java.time.Duration;
+
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.testng.asserts.SoftAssert;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.suite.commons.DBUtils;
+
 import com.suite.commons.ExtentLogger;
 import com.suite.commons.database.DBConnection;
 import com.test.test_data.RuntimeTestDataHolder;
@@ -19,6 +30,9 @@ import com.test.webdriver_factory.WebDriverFactory;
  * @param otherAnimal Tasty treat.
  */
 public class BasePage {
+
+	protected SoftAssert softAssert;
+	protected Wait<WebDriver> fluentwait;
 	protected WebDriver driver;
 	public ExtentLogger logger = new ExtentLogger();
 	private Map<String,String> runTimeTestData = new HashMap<String,String>();
@@ -26,8 +40,20 @@ public class BasePage {
 	public BasePage()
 	{
 		driver = WebDriverFactory.getDriver();
+		fluentwait = getFluentWaitTimeout();
+		softAssert = new SoftAssert();
+		AssertionFactory.setSoftAssert(softAssert);
+
 		PageFactory.initElements(driver, this);
 		runTimeTestData = RuntimeTestDataHolder.getRunTimeTestData();
+
+	}
+
+	public Wait<WebDriver> getFluentWaitTimeout() {
+		return new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(15))
+				.pollingEvery(Duration.ofSeconds(1))
+				.ignoring(NoSuchElementException.class);
+		
 	}
 
 	public String getRunTimeTestData(String key) {
@@ -66,10 +92,7 @@ public class BasePage {
 
 		return result;
 
-
-
 	}
-
 	
 	/**
 	 * Method executeUpdateOrDeleteQuery will be used to perform update or delete DB opertion
