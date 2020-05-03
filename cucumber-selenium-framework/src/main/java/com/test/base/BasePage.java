@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.asserts.SoftAssert;
 
+import com.suite.commons.AssertionFactory;
 import com.suite.commons.DBUtils;
 import com.suite.commons.ExtentLogger;
 import com.suite.commons.database.DBConnection;

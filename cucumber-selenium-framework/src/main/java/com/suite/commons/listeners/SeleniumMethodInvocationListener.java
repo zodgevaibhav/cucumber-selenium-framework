@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
-import org.testng.annotations.Test;
 
-import com.suite.commons.AssertionFactory;
 import com.suite.commons.SeleniumUtils;
 import com.suite.commons.reporting.ExtentReportTestFactory;
 import com.test.test_data.RuntimeTestDataHolder;
@@ -30,7 +28,6 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 			try {
 				WebDriverFactory.setDriver(WebDriverManager.CreateInstance());
 				RuntimeTestDataHolder.setRunTimeTestData(new HashMap<String,String>());
-				//ExtentReportTestFactory.createNewTest(method);
 				logger.info("******** Driver object and test report instance created successfully");
 			} catch (MalformedURLException e) {
 				logger.error("!!!!!!!! Exception while creating Driver object and test report instance ");

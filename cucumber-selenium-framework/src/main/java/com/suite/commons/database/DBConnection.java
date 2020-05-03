@@ -7,11 +7,11 @@ import com.suite.commons.DBUtils;
 public class DBConnection {
 	private boolean isActive;
 	private Connection conn;
-	
+
 	public DBConnection(Connection connection, boolean isActive) {
-		this.conn=connection;
+		this.conn = connection;
 		this.isActive = isActive;
-		
+
 	}
 
 	public boolean isActive() {
@@ -21,8 +21,6 @@ public class DBConnection {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-
-	
 
 	public Connection getConn() {
 		return conn;
