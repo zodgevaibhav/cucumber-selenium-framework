@@ -18,6 +18,7 @@ public class HomePage extends BasePage {
 	@Then("user should be able to see {string} message")
 	public HomePage verifyWelcomeText(String strWelComeText) {
 		logger.info("********** In verify welcome message method");
+		logger.info("********** Run time data stored check - Title "+getRunTimeTestData("BrowserTitle"));
 		Assert.assertEquals(welComeText.getText(), strWelComeText);
 		return this;
 	}
