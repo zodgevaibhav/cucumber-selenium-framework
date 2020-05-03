@@ -47,7 +47,7 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 				ExtentReportTestFactory.getTest().fail(testResult.getThrowable());
 				String fileName = new Long(System.currentTimeMillis()).toString().replace(".", "").replace(":", "");
 				SeleniumUtils.takeScreenshot("target/"+fileName+".png");				
-					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"/"+fileName+".png");
+					ExtentReportTestFactory.getTest().addScreenCaptureFromPath("target/"+fileName+".png");
 					logger.debug("******** Screenshot attached to extent report");
 					
 				} catch (IOException e) {
