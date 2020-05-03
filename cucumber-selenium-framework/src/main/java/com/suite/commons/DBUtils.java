@@ -20,7 +20,7 @@ public class DBUtils {
 	private static String userName = "root";
 	private static String password = "root";
 
-	private static List<DBConnection> dbPool = new ArrayList<>();
+	private static List<DBConnection> dbPool = new ArrayList<DBConnection>();
 
 	private static Connection conn;
 
