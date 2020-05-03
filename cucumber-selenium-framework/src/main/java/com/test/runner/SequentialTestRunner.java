@@ -2,6 +2,7 @@ package com.test.runner;
 
 import org.testng.annotations.Test;
 
+import com.suite.commons.AssertionFactory;
 import com.suite.commons.reporting.ExtentReportTestFactory;
 import com.test.base.BaseTest;
 
@@ -15,6 +16,7 @@ public class SequentialTestRunner extends BaseTest{
 	 {
 		 ExtentReportTestFactory.createNewTest(featureWrapper.toString(),pickleWrapper.toString());
 		 cucumberRunner.runScenario(pickleWrapper.getPickle());
+		 AssertionFactory.getSoftAssert().assertAll();
 	 }
 	
 }

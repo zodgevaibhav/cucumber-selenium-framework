@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
+import org.testng.annotations.Test;
 
+import com.suite.commons.AssertionFactory;
 import com.suite.commons.SeleniumUtils;
 import com.suite.commons.reporting.ExtentReportTestFactory;
 import com.test.webdriver_factory.WebDriverFactory;
@@ -40,13 +42,13 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 		{
 			logger.info("******** In after invocation");
 			logger.info("******** In after invocation - Test Case Status " +testResult.isSuccess());
-
+			
 			if(!testResult.isSuccess())
 			{
 				try {
 				ExtentReportTestFactory.getTest().fail(testResult.getThrowable());
 				String fileName = new Long(System.currentTimeMillis()).toString().replace(".", "").replace(":", "");
-				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"\\"+fileName+".png");				
+				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"/"+fileName+".png");			
 					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"/"+fileName+".png");
 					logger.debug("******** Screenshot attached to extent report");
 					
@@ -58,6 +60,6 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 			WebDriverFactory.getDriver().quit();
 		}
 	}
-
 	
+
 }
