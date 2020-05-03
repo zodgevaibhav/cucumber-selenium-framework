@@ -53,16 +53,17 @@ public class PropertyHolder {
 				try {
 					input = new FileInputStream(file);
 					Properties tempGeneralConfig = new Properties();
+					tempGeneralConfig.load(input);
 					generalProperties.putAll(tempGeneralConfig);
 				} catch (FileNotFoundException e) {
-					System.out.println(
+					logger.error(
 							"!!!!! "+file.getAbsolutePath()+" file Not found. \n Please create WebDriverConfig.properties as src/test/resources location and provide configuration properly.");
 					logger.error(
 							"!!!!!  "+file.getAbsolutePath()+" file Not found. \n Please create WebDriverConfig.properties as src/test/resources location and provide configuration properly.");
 					e.printStackTrace();
 					//System.exit(-1);
 				} catch (IOException e) {
-					System.out.println(
+					logger.error(
 							"Error while loading property "+file.getAbsolutePath()+" file. \n Please check content of property file and try again.");
 					logger.error(
 							"Error while loading property "+file.getAbsolutePath()+" file. \n Please check content of property file and try again.");

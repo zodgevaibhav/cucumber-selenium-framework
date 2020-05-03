@@ -2,6 +2,7 @@ package com.suite.commons.listeners;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.testng.annotations.Test;
 import com.suite.commons.AssertionFactory;
 import com.suite.commons.SeleniumUtils;
 import com.suite.commons.reporting.ExtentReportTestFactory;
+import com.test.test_data.RuntimeTestDataHolder;
 import com.test.webdriver_factory.WebDriverFactory;
 import com.test.webdriver_factory.WebDriverManager;
 
@@ -27,6 +29,7 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 			logger.info("******** In before invocation");
 			try {
 				WebDriverFactory.setDriver(WebDriverManager.CreateInstance());
+				RuntimeTestDataHolder.setRunTimeTestData(new HashMap<String,String>());
 				//ExtentReportTestFactory.createNewTest(method);
 				logger.info("******** Driver object and test report instance created successfully");
 			} catch (MalformedURLException e) {
@@ -48,8 +51,8 @@ public class SeleniumMethodInvocationListener implements IInvokedMethodListener 
 				try {
 				ExtentReportTestFactory.getTest().fail(testResult.getThrowable());
 				String fileName = new Long(System.currentTimeMillis()).toString().replace(".", "").replace(":", "");
-				SeleniumUtils.takeScreenshot(System.getProperty("user.dir")+"/"+fileName+".png");			
-					ExtentReportTestFactory.getTest().addScreenCaptureFromPath(System.getProperty("user.dir")+"/"+fileName+".png");
+				SeleniumUtils.takeScreenshot("target/"+fileName+".png");				
+					ExtentReportTestFactory.getTest().addScreenCaptureFromPath("target/"+fileName+".png");
 					logger.debug("******** Screenshot attached to extent report");
 					
 				} catch (IOException e) {

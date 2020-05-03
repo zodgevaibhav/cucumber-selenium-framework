@@ -5,6 +5,14 @@
 <!-- parameter name="featureFilePath" value="src/test/resources/feature/Login.feature"/ --> <!--  Mandatory : Run specific feature file -->
 <parameter name="featureFilePath" value="src/test/resources/feature/"/> <!--  Mandatory : Folder of feature file -->
 <parameter name="glueCodePackageName" value="com.orangehrm.pages"/> <!--  Mandatory : Folder of feature file -->
+<parameter name="tagsToExecute" value="@High or @SanityTest"/>   
+<!-- Mandatory value can be {
+								<parameter name="tagsToExecute" value=""> //ignore tags
+								<parameter name="tagsToExecute" value="@High or @SanityTest">
+								<parameter name="tagsToExecute" value="@High and @SanityTest">
+								<parameter name="tagsToExecute" value="@High">
+							} 
+-->
 
   <test name="Test">
     <classes>

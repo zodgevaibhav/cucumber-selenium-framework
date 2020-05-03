@@ -24,13 +24,16 @@ public class BaseTest {
 		cucumberRunner.finish(); // Cloused used instances and print summary of execution. 
 	}
 	
-	 @Parameters({"featureFilePath","glueCodePackageName"})
+	 @Parameters({"featureFilePath","glueCodePackageName","tagsToExecute"})
 	 @BeforeSuite
-	 public void beforeSuite(String featureFilePath, String glueCodePackageName)
+	 public void beforeSuite(String featureFilePath, String glueCodePackageName, String tagsToExecute)
 	 {
-		 System.setProperty("cucumber.options",featureFilePath+" --glue "+glueCodePackageName+" ");
+		 String tagToIncludeCommandOption = tagsToExecute.trim()!="" &&tagsToExecute!=null?" --tags \""+tagsToExecute+"\"":"";
+		 System.out.println("********* tagExclue command" +tagToIncludeCommandOption);
+		 System.setProperty("cucumber.options",featureFilePath+" --glue "+glueCodePackageName+" "+tagToIncludeCommandOption);
 		 cucumberRunner = new TestNGCucumberRunner(this.getClass());
 		 PropertyHolder.loadWebDriverConfig();
+		 PropertyHolder.loadGeneralConfig();
 	 }
 	 
 	 @AfterSuite

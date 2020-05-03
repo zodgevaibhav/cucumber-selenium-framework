@@ -1,6 +1,7 @@
 package com.suite.commons.reporting;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -43,12 +44,6 @@ public class ExtentReportTestFactory {
 		}
 	}
 	
-	synchronized public static void createNewTest(IInvokedMethod m)
-	{
-		ExtentReportTestFactory.extentTest.set(getModule(m.getTestResult().getInstance().getClass().getSimpleName()).createNode(m.getTestMethod().getMethodName()));
-		for(String group:m.getTestMethod().getGroups())
-			extentTest.get().assignCategory(group);
-	}
 	
 	synchronized public static void createNewTest(String moduleName,String testName)
 	{
@@ -65,5 +60,13 @@ public class ExtentReportTestFactory {
 
 	synchronized public static ExtentTest getTest() {
 		return extentTest.get();
+	}
+
+
+	synchronized public static void assignTestCategories(List<String> tags) {
+		for(String category:tags)
+		{
+			getTest().assignCategory(category);
+		}
 	}
 }
