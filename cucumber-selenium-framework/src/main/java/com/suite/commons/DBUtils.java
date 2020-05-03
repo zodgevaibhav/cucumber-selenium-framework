@@ -24,7 +24,7 @@ public class DBUtils {
 
 	private static Connection conn;
 
-	public static Connection createConnection() {
+	public static void createConnection() {
 		if (null == conn) {
 			try {
 				String driverClassName = PropertyHolder.generalProperties.getProperty("driver.class.name");
@@ -51,18 +51,19 @@ public class DBUtils {
 					dbPool.add(new DBConnection(DriverManager.getConnection(dbUrl, userName, password),false));
 				}
 
-				return conn;
 			} catch (Exception e) {
 				logger.error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Unable to create connection \n\n\n");
 				e.printStackTrace();
 			}
 		}	
 		logger.info("********** in getConnection : connection is already exists, rending it back.");
-		return conn;
 	}
 
 	public static DBConnection getDBConnection(){
 
+		if(dbPool.size()<1)
+			DBUtils.createConnection();
+		
 		for (DBConnection dbConnection : dbPool) {
 			if(!dbConnection.isActive()){
 				dbConnection.setActive(true);
