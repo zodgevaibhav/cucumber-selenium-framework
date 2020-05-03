@@ -53,6 +53,7 @@ public class PropertyHolder {
 				try {
 					input = new FileInputStream(file);
 					Properties tempGeneralConfig = new Properties();
+					tempGeneralConfig.load(input);
 					generalProperties.putAll(tempGeneralConfig);
 				} catch (FileNotFoundException e) {
 					System.out.println(
