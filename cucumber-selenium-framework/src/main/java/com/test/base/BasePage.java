@@ -18,11 +18,11 @@ public class BasePage {
 		fluentwait = getFluentWaitObject(15);
 	}
 	
-	public Wait<WebDriver> getFluentWaitObject(int timeout, int pollingSeconds)
+	public Wait<WebDriver> getFluentWaitObject(int timeout)
 	{
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 			    .withTimeout(Duration.ofSeconds(timeout)) 
-			    .pollingEvery(Duration.ofSeconds(pollingSeconds)); 
+			    .pollingEvery(Duration.ofSeconds(1)); 
 		return wait;
 	}
 
