@@ -31,6 +31,7 @@ public class BaseTest {
 		 System.setProperty("cucumber.options",featureFilePath+" --glue "+glueCodePackageName+" ");
 		 cucumberRunner = new TestNGCucumberRunner(this.getClass());
 		 PropertyHolder.loadWebDriverConfig();
+		 PropertyHolder.loadGeneralConfig();
 	 }
 	 
 	 @AfterSuite

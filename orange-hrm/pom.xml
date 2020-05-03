@@ -5,6 +5,10 @@
 	<groupId>com.orangehrm</groupId>
 	<artifactId>orange-hrm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<compileSource>1.8</compileSource>
+	</properties>
 	<build>
 		<!-- Source directory configuration -->
 		<sourceDirectory>src</sourceDirectory>
@@ -28,9 +32,9 @@
 
 	<dependencies>
 		<dependency>
-				<groupId>org.openvz.test</groupId>
-				<artifactId>cucumber-selenium-framework</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.openvz.test</groupId>
+			<artifactId>cucumber-selenium-framework</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

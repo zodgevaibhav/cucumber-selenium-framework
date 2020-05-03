@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.suite.commons.PropertyHolder;
 import com.test.base.BasePage;
 
 import io.cucumber.java.en.Given;
@@ -30,7 +31,7 @@ public class LoginPage extends BasePage{
 	@Given("user navigate to orange hrm URL")
 	public LoginPage navigateToOrangeHrmApplication()
 	{
-		driver.get("");
+		driver.get(PropertyHolder.generalProperties.getProperty("QA_URL"));
 		return this;
 	}
 	
