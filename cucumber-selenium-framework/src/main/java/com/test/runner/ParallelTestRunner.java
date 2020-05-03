@@ -14,6 +14,7 @@ public class ParallelTestRunner extends BaseTest{
 	 public void runScenarios(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) throws Throwable
 	 {
 		 ExtentReportTestFactory.createNewTest(featureWrapper.toString(),pickleWrapper.toString());
+		 ExtentReportTestFactory.assignTestCategories(pickleWrapper.getPickle().getTags());
 		 cucumberRunner.runScenario(pickleWrapper.getPickle());
 	 }
 	

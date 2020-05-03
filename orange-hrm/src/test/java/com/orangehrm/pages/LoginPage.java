@@ -31,7 +31,8 @@ public class LoginPage extends BasePage{
 	@Given("user navigate to orange hrm URL")
 	public LoginPage navigateToOrangeHrmApplication()
 	{
-		driver.get(PropertyHolder.generalProperties.getProperty("QA_URL"));
+		String ENVIRONMENT = PropertyHolder.generalProperties.getProperty("ENVIRONMENT");
+		driver.get(PropertyHolder.generalProperties.getProperty(ENVIRONMENT+"_URL"));
 		return this;
 	}
 	
