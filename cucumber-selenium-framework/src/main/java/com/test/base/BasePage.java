@@ -18,7 +18,7 @@ public class BasePage {
 		fluentwait = getFluentWaitObject(15);
 	}
 	
-	public Wait<WebDriver> CustomFluentWait(int timeout, int pollingSeconds)
+	public Wait<WebDriver> getFluentWaitObject(int timeout, int pollingSeconds)
 	{
 		Wait<WebDriver> wait = new getFluentWaitObject<WebDriver>(driver)
 			    .withTimeout(Duration.ofSeconds(timeout)) 
