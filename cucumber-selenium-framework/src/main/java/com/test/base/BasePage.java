@@ -20,7 +20,7 @@ public class BasePage {
 	
 	public Wait<WebDriver> getFluentWaitObject(int timeout, int pollingSeconds)
 	{
-		Wait<WebDriver> wait = new getFluentWaitObject<WebDriver>(driver)
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 			    .withTimeout(Duration.ofSeconds(timeout)) 
 			    .pollingEvery(Duration.ofSeconds(pollingSeconds)); 
 		return wait;
