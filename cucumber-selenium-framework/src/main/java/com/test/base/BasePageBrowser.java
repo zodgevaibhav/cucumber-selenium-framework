@@ -25,7 +25,7 @@ import com.test.webdriver_factory.WebDriverFactory;
  * {@inheritDoc}
  * @param otherAnimal Tasty treat.
  */
-public class BasePage {
+public class BasePageBrowser {
 
 	protected SoftAssert softAssert;
 	protected Wait<WebDriver> fluentwait;
@@ -33,7 +33,7 @@ public class BasePage {
 	public ExtentLogger logger = new ExtentLogger();
 	private Map<String,String> runTimeTestData = new HashMap<String,String>();
 
-	public BasePage()
+	public BasePageBrowser()
 	{
 		driver = WebDriverFactory.getDriver();
 		fluentwait = getFluentWaitTimeout();

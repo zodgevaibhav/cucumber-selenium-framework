@@ -6,13 +6,11 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.IInvokedMethod;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.test.base.BasePage;
 
 
 public class ExtentReportTestFactory {
@@ -20,7 +18,7 @@ public class ExtentReportTestFactory {
 	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	
 	private static Map<String, ExtentTest> moduleMap = new HashMap<String, ExtentTest>();
-    private static final Logger logger = LoggerFactory.getLogger(BasePage.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExtentReportTestFactory.class);
 
 	static {
 		ExtentSparkReporter htmlReporter = new ExtentSparkReporter("extent.html");

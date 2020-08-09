@@ -4,11 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import com.test.base.BasePage;
+import com.test.base.BasePageBrowser;
 
 import io.cucumber.java.en.Then;
 
-public class HomePage extends BasePage {
+public class HomePage extends BasePageBrowser {
 
 	//BasePage provides driver object, logger object
 	
@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
 	public HomePage verifyWelcomeText(String strWelComeText) {
 		logger.info("********** In verify welcome message method");
 		logger.info("********** Run time data stored check - Title "+getRunTimeTestData("BrowserTitle"));
-		Assert.assertEquals(welComeText.getText(), strWelComeText);
+		Assert.assertEquals(welComeText.getText(), strWelComeText,"Test case failed because expected data not found");
 		return this;
 	}
 }

@@ -35,7 +35,6 @@ public class WebDriverManager {
 		try {	
 			if (driverMode.contains("BROWSER")) {
 			System.setProperty(driverPropertyName, driverExecutablePath);
-		
 				if (browser.contains("chrome"))
 					dr = new ChromeDriver();
 				else if (browser.contains("firefox"))
@@ -48,12 +47,10 @@ public class WebDriverManager {
 				}
 
 		} else if (driverMode.contains("REMOTE")) {
-			DesiredCapabilities cap = new DesiredCapabilities();
-			cap.setBrowserName(browser);
-			cap.setVersion(browserVersion);
-			cap.setCapability("platform", platform);
-
-			dr = new RemoteWebDriver(new URL(hubUrl), cap);
+			
+			System.out.println("****** Before Webdriver object creation");
+			dr = new RemoteWebDriver(new URL(hubUrl), CapabilityFactory.getDesiredCapabilities());
+			System.out.println("****** After Webdriver object creation");
 
 		} else {
 			System.out.println("!!!!!!!! Unable to create driver object");
@@ -68,25 +65,6 @@ public class WebDriverManager {
 		return dr;
 	}
 
-	synchronized private static DesiredCapabilities getDerivedCapabilities() {
-
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setBrowserName("chrome");
-		/*
-		 * if(System.getProperty("platform").contentEquals("web")){
-		 * capabilities.setBrowserName(System.getProperty("browser")); //
-		 * capabilities.setVersion(System.getProperty("version")); }else
-		 * if(System.getProperty("platform").contentEquals("mobile")){
-		 * capabilities.setCapability("BROWSER_NAME", "Android");
-		 * capabilities.setCapability("VERSION", "4.2.2");
-		 * capabilities.setCapability("deviceName", "Emulator");
-		 * capabilities.setCapability("platformName", "Android");
-		 * capabilities.setCapability("appPackage", "com.android.chrome");
-		 * capabilities.setCapability("appActivity", "com.android.chrome"); }
-		 */
-		return capabilities;
-	}
-
 	private static void loadDesiredData() {
 
 		if (null == System.getProperty("browser")) {
@@ -98,9 +76,6 @@ public class WebDriverManager {
 	}
 
 	private static void loadConfigFromSystemProperty() {
-
-		browser = System.getProperty("browser");
-		browserVersion = System.getProperty("browserVersion");
 		platform = System.getProperty("platform");
 		hubUrl = System.getProperty("hubUrl");
 		driverMode = "REMOTE";
@@ -111,23 +86,23 @@ public class WebDriverManager {
 			System.out.println(
 					"!!!!!! Webdriver Object Creation failed. webdriverProperties.properties does not load properly");
 			System.exit(-1);
+		}else {
+			System.out.println(
+					"*********** Webdriver propertu file loaded");
 		}
 
 		if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("BROWSER")) {
 			
-			browser = PropertyHolder.webdriverProperties.getProperty("browser");
-			browserVersion = PropertyHolder.webdriverProperties.getProperty("browserVersion");
 			platform = PropertyHolder.webdriverProperties.getProperty("platform");
 			driverMode = "BROWSER";
 			driverPropertyName = PropertyHolder.webdriverProperties.getProperty("DRIVER_PROPERTY_NAME");
-			
 			driverExecutablePath = PropertyHolder.webdriverProperties.getProperty("DRIVER_EXECUTABLE_PATH");
+			
 		} else if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("REMOTE")) {
-			browser = PropertyHolder.webdriverProperties.getProperty("browser");
-			browserVersion = PropertyHolder.webdriverProperties.getProperty("browserVersion");
-			platform = PropertyHolder.webdriverProperties.getProperty("platform");
 			hubUrl = PropertyHolder.webdriverProperties.getProperty("hubUrl");
-			driverMode = "REMOTE";
+			driverMode = "REMOTE";	
+			System.out.println(
+					"************** Driver mode found as REMOTE.");
 		} else {
 			System.out.println(
 					"!!!!!! DRIVER property from webdriverProperties.properties should be either REMOTE or BROWSER.");

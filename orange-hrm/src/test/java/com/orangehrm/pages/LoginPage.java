@@ -6,12 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.suite.commons.PropertyHolder;
-import com.test.base.BasePage;
+import com.test.base.BasePageBrowser;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePageBrowser{
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 

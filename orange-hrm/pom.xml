@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.orangehrm</groupId>
 	<artifactId>orange-hrm</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<properties>
 		<compileSource>1.8</compileSource>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>org.openvz.test</groupId>
 			<artifactId>cucumber-selenium-framework</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.3</version>
 		</dependency>
 	</dependencies>
 
