@@ -8,9 +8,6 @@ import org.slf4j.LoggerFactory;
 import com.suite.commons.PropertyHolder;
 import com.test.base.BasePageBrowser;
 
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
