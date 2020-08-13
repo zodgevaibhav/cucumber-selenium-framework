@@ -34,7 +34,9 @@ public class BasePageMobile {
 		fluentwait = getFluentWaitObject(15);
 		softAssert = new SoftAssert();
 		AssertionFactory.setSoftAssert(softAssert);
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);	
+		
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+		
 
 	}
 	@SuppressWarnings("rawtypes")
