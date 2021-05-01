@@ -55,6 +55,8 @@ public class BasePageBrowser {
 	public String getRunTimeTestData(String key) {
 		return runTimeTestData.get(key);
 	}
+	
+	
 
 	public void setRunTimeTestData(String key, String value) {
 

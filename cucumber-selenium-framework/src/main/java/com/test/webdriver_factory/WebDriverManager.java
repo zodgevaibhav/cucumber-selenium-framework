@@ -104,6 +104,8 @@ public class WebDriverManager {
 
 		if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("BROWSER")) {
 			
+			browser = PropertyHolder.webdriverProperties.getProperty("browser");
+			browserVersion = PropertyHolder.webdriverProperties.getProperty("browserVersion");
 			platform = PropertyHolder.webdriverProperties.getProperty("platform");
 			driverMode = "BROWSER";
 			driverPropertyName = PropertyHolder.webdriverProperties.getProperty("DRIVER_PROPERTY_NAME");
