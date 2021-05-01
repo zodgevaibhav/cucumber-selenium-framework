@@ -93,27 +93,27 @@ public class WebDriverManager {
 	}
 
 	private static void loadConfigFromPropertyFile() {
-		if (null == PropertyHolder.webdriverProperties) {
+		if (null == PropertyHolder.testSuiteConfigurationProperties) {
 			System.out.println(
 					"!!!!!! Webdriver Object Creation failed. webdriverProperties.properties does not load properly");
 			System.exit(-1);
 		}else {
 			System.out.println(
-					"*********** Webdriver propertu file loaded");
+					"*********** Webdriver property file loaded");
 		}
 
-		if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("BROWSER")) {
+		if (PropertyHolder.testSuiteConfigurationProperties.get("DRIVER").toString().contentEquals("BROWSER")) {
 			
-			browser = PropertyHolder.webdriverProperties.getProperty("browser");
-			browserVersion = PropertyHolder.webdriverProperties.getProperty("browserVersion");
-			platform = PropertyHolder.webdriverProperties.getProperty("platform");
+			browser = PropertyHolder.testSuiteConfigurationProperties.getProperty("browser");
+			browserVersion = PropertyHolder.testSuiteConfigurationProperties.getProperty("browserVersion");
+			platform = PropertyHolder.testSuiteConfigurationProperties.getProperty("platform");
 			driverMode = "BROWSER";
-			driverPropertyName = PropertyHolder.webdriverProperties.getProperty("DRIVER_PROPERTY_NAME");
-			driverExecutablePath = PropertyHolder.webdriverProperties.getProperty("DRIVER_EXECUTABLE_PATH");
+			driverPropertyName = PropertyHolder.testSuiteConfigurationProperties.getProperty("DRIVER_PROPERTY_NAME");
+			driverExecutablePath = PropertyHolder.testSuiteConfigurationProperties.getProperty("DRIVER_EXECUTABLE_PATH");
 			
-		} else if (PropertyHolder.webdriverProperties.get("DRIVER").toString().contentEquals("REMOTE")) {
-			platform = PropertyHolder.webdriverProperties.getProperty("platform");
-			hubUrl = PropertyHolder.webdriverProperties.getProperty("hubUrl");
+		} else if (PropertyHolder.testSuiteConfigurationProperties.get("DRIVER").toString().contentEquals("REMOTE")) {
+			platform = PropertyHolder.testSuiteConfigurationProperties.getProperty("platform");
+			hubUrl = PropertyHolder.testSuiteConfigurationProperties.getProperty("hubUrl");
 			driverMode = "REMOTE";	
 			System.out.println(
 					"************** Driver mode found as REMOTE.");

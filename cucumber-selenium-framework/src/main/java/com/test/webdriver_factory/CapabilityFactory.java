@@ -19,8 +19,8 @@ public class CapabilityFactory {
 	private static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
 	static {
-		System.out.println("*********** Static block called. Platform - " + PropertyHolder.webdriverProperties.get("platform").toString());
-		switch (PropertyHolder.webdriverProperties.get("platform").toString()) {
+		System.out.println("*********** Static block called. Platform - " + PropertyHolder.testSuiteConfigurationProperties.get("platform").toString());
+		switch (PropertyHolder.testSuiteConfigurationProperties.get("platform").toString()) {
 		case "ANDROID":
 			System.out.println("*********** ANDROIF IN");
 			fillCapabilities(getProperties("AndroidCapabilities.properties"));
@@ -65,18 +65,18 @@ public class CapabilityFactory {
 		InputStream input;
 		Properties properties = new Properties();
 		try {
-			input = new FileInputStream("src/test/resources/CapabilityProperties/" + propertyFileName);
+			input = new FileInputStream("src/test/resources/properties/capabilities/" + propertyFileName);
 			properties = new Properties();
 			properties.load(input);
 		} catch (FileNotFoundException e) {
 			System.out
-					.println("!!!!! Unable to laoad property file at location src/test/resources/CapabilityProperties/"
+					.println("!!!!! Unable to laoad property file at location src/test/resources/properties/capabilities/"
 							+ propertyFileName);
 			e.printStackTrace();
 			System.exit(-1);
 		} catch (IOException e) {
 			System.out
-					.println("!!!!! Unable to laoad property file at location src/test/resources/CapabilityProperties/"
+					.println("!!!!! Unable to laoad property file at location src/test/resources/properties/capabilities/"
 							+ propertyFileName + " \n Please check content of property file and try again.");
 			e.printStackTrace();
 			System.exit(-1);

@@ -2,8 +2,6 @@ package com.suite.commons.database;
 
 import java.sql.Connection;
 
-import com.suite.commons.DBUtils;
-
 public class DBConnection {
 	private boolean isActive;
 	private Connection conn;

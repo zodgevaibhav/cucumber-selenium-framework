@@ -30,8 +30,8 @@ public class LoginPage extends BasePageBrowser{
 	@Given("user navigate to orange hrm URL")
 	public LoginPage navigateToOrangeHrmApplication()
 	{
-		String ENVIRONMENT = PropertyHolder.generalProperties.getProperty("ENVIRONMENT");
-		driver.get(PropertyHolder.generalProperties.getProperty(ENVIRONMENT+"_URL"));
+		String ENVIRONMENT = PropertyHolder.testSuiteConfigurationProperties.getProperty("ENVIRONMENT");
+		driver.get(PropertyHolder.testSuiteConfigurationProperties.getProperty(ENVIRONMENT+"_URL"));
 		setRunTimeTestData("BrowserTitle", driver.getTitle());
 		return this;
 	}

@@ -1,7 +1,6 @@
 package com.orangehrm.pages.mobile;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +31,8 @@ public class LoginPage extends BasePageMobile{
 	@Given("user navigate to orange hrm URL")
 	public LoginPage navigateToOrangeHrmApplication()
 	{
-		String ENVIRONMENT = PropertyHolder.generalProperties.getProperty("ENVIRONMENT");
-		driver.get(PropertyHolder.generalProperties.getProperty(ENVIRONMENT+"_URL"));
+		String ENVIRONMENT = PropertyHolder.testSuiteConfigurationProperties.getProperty("ENVIRONMENT");
+		driver.get(PropertyHolder.testSuiteConfigurationProperties.getProperty(ENVIRONMENT+"_URL"));
 		
 		
 	try {

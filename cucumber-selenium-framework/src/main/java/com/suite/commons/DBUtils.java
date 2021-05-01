@@ -27,11 +27,11 @@ public class DBUtils {
 	public static void createConnection() {
 		if (null == conn) {
 			try {
-				String driverClassName = PropertyHolder.generalProperties.getProperty("driver.class.name");
-				userName = PropertyHolder.generalProperties.getProperty("dbusername");
-				password = PropertyHolder.generalProperties.getProperty("dbpasssword");
-				String connectionPoolSize = PropertyHolder.generalProperties.getProperty("connection.active");
-				dbUrl = PropertyHolder.generalProperties.getProperty("dbUrl");
+				String driverClassName = PropertyHolder.testSuiteConfigurationProperties.getProperty("driver.class.name");
+				userName = PropertyHolder.testSuiteConfigurationProperties.getProperty("dbusername");
+				password = PropertyHolder.testSuiteConfigurationProperties.getProperty("dbpasssword");
+				String connectionPoolSize = PropertyHolder.testSuiteConfigurationProperties.getProperty("connection.active");
+				dbUrl = PropertyHolder.testSuiteConfigurationProperties.getProperty("dbUrl");
 				logger.info("********** in getConnection : connection is not yet created, creating first time.");
 				Class.forName(driverClassName);
 				logger.info("********** in getConnection: Connection driver ...");
